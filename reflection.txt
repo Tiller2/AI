@@ -1,0 +1,2 @@
+7 - 18 - 2022:
+I learned that one of the first things you consider when applying AI is to look at the environmental factors. For example, when applying AI to chess, one environmental factor you consider is that chess is deterministic, meaning there is no probability involved and that every move is determined. Another factor is episodic, meaning that after every game, the chess pieces go back to their original position and everything restarts.
