@@ -1,0 +1,3 @@
+friends = []
+
+def addFriends(x):
