@@ -1,3 +1,0 @@
-friends = []
-
-def addFriends(x):
