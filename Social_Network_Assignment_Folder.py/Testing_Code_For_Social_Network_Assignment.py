@@ -1,4 +1,4 @@
-#Experimenting if x can be used as a translator for a list of people who sent someone a friend request:
+#Testing if x can be used as a translator for a list of people who sent someone a friend request:
 #elif action == "2":
 #    friendsAction = input("1. View Friends\n2. Add Friends\n3. View Friend Requests\n")
 #    if friendsAction == "1":
@@ -29,7 +29,7 @@
 #        invalidInput = input("Invalid input, enter again.")
 #    goBack()
 
-#Experimenting if you can count how many elements of a certain name are in the friends list:
+#Testing if you can count how many elements of a certain name are in the friends list:
 #friends = []
 
 #Does Not Work: You cannot count how many elements of a specific value are in a list.

@@ -31,6 +31,8 @@ messagesToLaurenFromMe = []
 messagesToEmilyFromMe = []
 messagesToSophiaFromMe = []
 
+#def addFriends():
+
 def acceptFriendRequest(x):
     friendRequestsToMe.remove(x)
     friendsList.append(x)
@@ -39,7 +41,7 @@ def declineFriendRequest(x):
     friendRequestsToMe.remove(x)
 
 def friends():
-    friendsAction = input("1. View Friends\n2. Add Friends\n3. View Friend Requests\n4. Go Back\n")
+    friendsAction = input("1. View Friends\n2. Add Friends\n3. View Friend Requests\n4. Go Back\nEnter a number to choose what to do.\n")
     if friendsAction == "1":
         print(friendsList)
         friends()
@@ -62,7 +64,8 @@ def friends():
         elif friendRequest == "Sophia":
             friendRequestsToSophia.append(y)
         else:
-            invalidInput = input("Invalid input, enter again.\n")
+            print(friendRequest + " is not a person.")
+            #addFriends()
         friends()
     elif friendsAction == "3":
         print(friendRequestsToMe)
@@ -74,11 +77,15 @@ def friends():
     elif friendsAction == "4":
         socialNetwork()
     else:
-        invalidInput = input("Invalid input, enter again.\n")
+        print("Invalid input, enter again.")
+        friends()
 
 def message():
     print(friendsList)
     messageFriend = input("Enter who to message.\n")
+    if messageFriend != "Jack" and messageFriend != "Will" and messageFriend != "Josh" and messageFriend != "Lauren" and messageFriend != "Emily" and messageFriend != "Sophia":
+        print(messageFriend + " is not a person.")
+        message()
     sendMessage = input("Enter message.\n")
     if messageFriend == "Jack":
         print("\nMy Chat With Jack")
@@ -152,9 +159,6 @@ def message():
         while i < y:
             print("Me:\n" + messagesToSophiaFromMe[i] + "\n")
             i += 1
-    else:
-        print(messageFriend + " is not a person.")
-        message()
     socialNetwork()
 
 def socialNetwork():
