@@ -5,9 +5,9 @@ name_file.writelines(name)
 name_file.close()
 description = input("Description: ")
 
-friendsList = []
-
 people = ["Jack", "Will", "Josh", "Lauren", "Emily", "Sophia"]
+
+friendsList = []
 
 friendRequestsToJack = []
 friendRequestsToWill = []
@@ -31,14 +31,45 @@ messagesToLaurenFromMe = []
 messagesToEmilyFromMe = []
 messagesToSophiaFromMe = []
 
-#def addFriends():
+def addFriends():
+    print(people)
+    friendRequest = input("Enter who to send a friend request to.\n")
+    x = open("Social_Network_Assignment_Name.txt", "r")
+    y = x.read()
+    x.close()
+    if friendRequest == "Jack":
+        friendRequestsToJack.append(y)
+    elif friendRequest == "Will":
+        friendRequestsToWill.append(y)
+    elif friendRequest == "Josh":
+        friendRequestsToJosh.append(y)
+    elif friendRequest == "Lauren":
+        friendRequestsToLauren.append(y)
+    elif friendRequest == "Emily":
+        friendRequestsToEmily.append(y)
+    elif friendRequest == "Sophia":
+        friendRequestsToSophia.append(y)
+    else:
+        print(friendRequest + " is not a person.")
+        addFriends()
+    friends()
 
-def acceptFriendRequest(x):
-    friendRequestsToMe.remove(x)
-    friendsList.append(x)
+def acceptFriendRequests():
+    acceptFriend = input("Choose who's friend request to accept.\nIf you do not want to accept any of these friend requests, press enter.\n")
+    if acceptFriend == "Jack" or acceptFriend == "Will" or acceptFriend == "Josh" or acceptFriend == "Lauren" or acceptFriend == "Emily" or acceptFriend == "Sophia":
+        friendRequestsToMe.remove(acceptFriend)
+        friendsList.append(acceptFriend)
+    elif acceptFriend != "":
+        print(acceptFriend + " is not a person.")
+        acceptFriendRequests()
 
-def declineFriendRequest(x):
-    friendRequestsToMe.remove(x)
+def declineFriendRequests():
+    declineFriend = input("Choose who's friend request to decline.\nIf you do not want to decline any of these friend requests, press enter.\n")
+    if declineFriend == "Jack" or declineFriend == "Will" or declineFriend == "Josh" or declineFriend == "Lauren" or declineFriend == "Emily" or declineFriend == "Sophia":
+        friendRequestsToMe.remove(declineFriend)
+    elif declineFriend != "":
+        print(declineFriend + " is not a person.")
+        declineFriendRequests()
 
 def friends():
     friendsAction = input("1. View Friends\n2. Add Friends\n3. View Friend Requests\n4. Go Back\nEnter a number to choose what to do.\n")
@@ -46,33 +77,11 @@ def friends():
         print(friendsList)
         friends()
     elif friendsAction == "2":
-        print(people)
-        friendRequest = input("Enter who to send a friend request to.\n")
-        x = open("Social_Network_Assignment_Name.txt", "r")
-        y = x.read()
-        x.close()
-        if friendRequest == "Jack":
-            friendRequestsToJack.append(y)
-        elif friendRequest == "Will":
-            friendRequestsToWill.append(y)
-        elif friendRequest == "Josh":
-            friendRequestsToJosh.append(y)
-        elif friendRequest == "Lauren":
-            friendRequestsToLauren.append(y)
-        elif friendRequest == "Emily":
-            friendRequestsToEmily.append(y)
-        elif friendRequest == "Sophia":
-            friendRequestsToSophia.append(y)
-        else:
-            print(friendRequest + " is not a person.")
-            #addFriends()
-        friends()
+        addFriends()
     elif friendsAction == "3":
         print(friendRequestsToMe)
-        acceptFriend = input("Choose who's friend request to accept.\n")
-        acceptFriendRequest(acceptFriend)
-        declineFriend = input("Choose who's friend request to decline.\n")
-        declineFriendRequest(declineFriend)
+        acceptFriendRequests()
+        declineFriendRequests()
         friends()
     elif friendsAction == "4":
         socialNetwork()
